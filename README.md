@@ -1,8 +1,10 @@
+![theme](https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white)
+![IBM](https://img.shields.io/badge/IBM-IBM%20Corporation-4F0599?style=for-the-badge&logo=ibm&logoColor=white)
+
 # RUFBA
 
 ![version](https://img.shields.io/badge/version-1.0-blue.svg?longCache=true&style=flat-square)
 ![license](https://img.shields.io/badge/license-MIT-green.svg?longCache=true&style=flat-square)
-![theme](https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white)
 ![contributors](https://img.shields.io/badge/Contributors-6-brightgreen?style=flat-square)
 
 ![RUFBA](https://i.imgur.com/Fa4MOL7.png)
@@ -31,9 +33,9 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Você deve estar utilizando um macbook
 * Você deve possuir o xcode instalado.
 
-## 🚀 Instalando <RUFBA>
+## 🚀 Instalando RUFBA
 
-Para instalar o <RUFBA>, siga estas etapas:
+Para instalar o RUFBA, siga estas etapas:
 
 Clone o repositorio:
 ```
