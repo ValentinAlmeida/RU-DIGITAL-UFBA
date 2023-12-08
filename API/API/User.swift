@@ -15,4 +15,5 @@ struct User: Hashable, Codable {
     var matricula: Int?
     var password: String?
     var cargo: Int?
+    var ticket: Bool?
 }
