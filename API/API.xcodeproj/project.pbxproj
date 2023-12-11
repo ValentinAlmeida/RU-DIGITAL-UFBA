@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7C4368212B2287DC00FA3813 /* APIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4368202B2287DC00FA3813 /* APIApp.swift */; };
-		7C4368232B2287DC00FA3813 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4368222B2287DC00FA3813 /* ContentView.swift */; };
 		7C4368252B2287DD00FA3813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C4368242B2287DD00FA3813 /* Assets.xcassets */; };
 		7C4368282B2287DD00FA3813 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C4368272B2287DD00FA3813 /* Preview Assets.xcassets */; };
 		7C43682F2B2287EA00FA3813 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C43682E2B2287EA00FA3813 /* User.swift */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		7C43681D2B2287DC00FA3813 /* API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C4368202B2287DC00FA3813 /* APIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIApp.swift; sourceTree = "<group>"; };
-		7C4368222B2287DC00FA3813 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7C4368242B2287DD00FA3813 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C4368272B2287DD00FA3813 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C43682E2B2287EA00FA3813 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 				7C968B2A2B2298A50041BF4D /* TelaInicial.swift */,
 				7C968B2C2B229A3F0041BF4D /* TelaDePagamento.swift */,
 				7C4368202B2287DC00FA3813 /* APIApp.swift */,
-				7C4368222B2287DC00FA3813 /* ContentView.swift */,
 				7C4368242B2287DD00FA3813 /* Assets.xcassets */,
 				7C4368262B2287DD00FA3813 /* Preview Content */,
 			);
@@ -156,7 +153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C971B282B2291DB00B5376F /* Cardapio.swift in Sources */,
-				7C4368232B2287DC00FA3813 /* ContentView.swift in Sources */,
 				7C968B2F2B229A4E0041BF4D /* TelaDeCardapio.swift in Sources */,
 				7C968B2B2B2298A50041BF4D /* TelaInicial.swift in Sources */,
 				7C4368212B2287DC00FA3813 /* APIApp.swift in Sources */,
