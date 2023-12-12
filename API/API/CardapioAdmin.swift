@@ -5,11 +5,14 @@ struct CardapioAdmin: View {
 
     var body: some View {
         NavigationView {
+            
             VStack {
-                Text("Cardápio")
-                    .font(.largeTitle)
+                Text("Cardápio Administrador")
+                    .font(.title)
                     .fontWeight(.bold)
                     .padding()
+    
+                
 
                 List(cardapios, id: \.self) { cardapio in
                     CardapioItemView(cardapio: cardapio)
@@ -22,7 +25,7 @@ struct CardapioAdmin: View {
 
             }
             .padding()
-            .navigationTitle(" RUFBA DIGITAL")
+            .navigationTitle(" R.UFBA DIGITAL")
             .navigationBarItems(trailing: Button("Atualizar") {
                 // Lógica para recarregar os dados da API aqui
                 CarregarCardapio()
@@ -72,6 +75,7 @@ struct CardapioItemView: View {
         .padding()
         .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.1)))
     }
+    
 }
 
 struct CardapioAdmin_Previews: PreviewProvider {
