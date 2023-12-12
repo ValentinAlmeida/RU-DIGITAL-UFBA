@@ -17,6 +17,7 @@
 		7C968B312B229A5C0041BF4D /* TelaDePerfilAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C968B302B229A5C0041BF4D /* TelaDePerfilAdmin.swift */; };
 		7C971B282B2291DB00B5376F /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C971B272B2291DB00B5376F /* Cardapio.swift */; };
 		7CD11F742B29198400A7C11F /* TelaDePerfilAluno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD11F732B29198400A7C11F /* TelaDePerfilAluno.swift */; };
+		7CD11F7A2B29226100A7C11F /* CalendarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD11F792B29226100A7C11F /* CalendarioView.swift */; };
 		7CE7F4992B27CBE7002BEE5B /* TelaDeLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7F4982B27CBE7002BEE5B /* TelaDeLogin.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		7C968B302B229A5C0041BF4D /* TelaDePerfilAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDePerfilAdmin.swift; sourceTree = "<group>"; };
 		7C971B272B2291DB00B5376F /* Cardapio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
 		7CD11F732B29198400A7C11F /* TelaDePerfilAluno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDePerfilAluno.swift; sourceTree = "<group>"; };
+		7CD11F792B29226100A7C11F /* CalendarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioView.swift; sourceTree = "<group>"; };
 		7CE7F4982B27CBE7002BEE5B /* TelaDeLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDeLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 				7CE7F4982B27CBE7002BEE5B /* TelaDeLogin.swift */,
 				7C968B2E2B229A4E0041BF4D /* TelaDeCardapio.swift */,
 				7C968B302B229A5C0041BF4D /* TelaDePerfilAdmin.swift */,
+				7CD11F792B29226100A7C11F /* CalendarioView.swift */,
 				7CD11F732B29198400A7C11F /* TelaDePerfilAluno.swift */,
 				7C971B272B2291DB00B5376F /* Cardapio.swift */,
 				7C43682E2B2287EA00FA3813 /* User.swift */,
@@ -160,6 +163,7 @@
 			files = (
 				7CD11F742B29198400A7C11F /* TelaDePerfilAluno.swift in Sources */,
 				7CE7F4992B27CBE7002BEE5B /* TelaDeLogin.swift in Sources */,
+				7CD11F7A2B29226100A7C11F /* CalendarioView.swift in Sources */,
 				7C971B282B2291DB00B5376F /* Cardapio.swift in Sources */,
 				7C968B2F2B229A4E0041BF4D /* TelaDeCardapio.swift in Sources */,
 				7C968B2B2B2298A50041BF4D /* TelaInicial.swift in Sources */,
