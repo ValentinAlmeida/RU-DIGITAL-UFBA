@@ -21,7 +21,7 @@ struct TelaInicial: View {
                 .tag(1)
             
             if tipoUsuario == .admin {
-                CalendarioView()
+                Calendario()
                     .tabItem {
                         Image(systemName: "gearshape.fill") // Ícone de cardápio
                         Text("Admin")
