@@ -10,11 +10,9 @@ import Foundation
 // 0 usuário comum, 1 usuário bolsista, 2 admin-1 (cadastrar cardápio e bolsista), 3 admim-2 (verificar QRcode)
 // Nome do banco node-red = user-ru
 struct User: Hashable, Codable {
-    var _id: String?
-    var _rev: String?
     var nome: String?
     var email: String?
     var matricula: Int?
     var password: String?
-    var cargo: Int?
+    var cargo: String?
 }
