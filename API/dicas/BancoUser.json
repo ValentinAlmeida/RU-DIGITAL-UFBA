@@ -1,0 +1,267 @@
+[
+    {
+        "id": "1bde81aa0afaee17",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1f0f29486ebc874d",
+        "type": "http in",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "url": "/insert-user-ruPOST",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 60,
+        "wires": [
+            [
+                "7b4d22d50fef2dca"
+            ]
+        ]
+    },
+    {
+        "id": "44c0dd7d44804be9",
+        "type": "http response",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "7b4d22d50fef2dca",
+        "type": "cloudantplus out",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "cloudant": "73e61778b2e40f48",
+        "database": "user-ru",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 440,
+        "y": 60,
+        "wires": [
+            [
+                "44c0dd7d44804be9"
+            ]
+        ]
+    },
+    {
+        "id": "61e6407b1955aaf0",
+        "type": "cloudantplus in",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "cloudant": "73e61778b2e40f48",
+        "database": "user-ru",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "e00bb1a2622a3822"
+            ]
+        ]
+    },
+    {
+        "id": "e00bb1a2622a3822",
+        "type": "http response",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "03267c03e2750e67",
+        "type": "http in",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "url": "/recover-all-user-ruGETALL",
+        "method": "get",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "61e6407b1955aaf0"
+            ]
+        ]
+    },
+    {
+        "id": "119b3f5c1ccf52ae",
+        "type": "http in",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "url": "/remove-user-ruDELETE",
+        "method": "delete",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "fb0533620d9087bb"
+            ]
+        ]
+    },
+    {
+        "id": "fb0533620d9087bb",
+        "type": "cloudantplus out",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "cloudant": "73e61778b2e40f48",
+        "database": "user-ru",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "979a3d75d0b46271"
+            ]
+        ]
+    },
+    {
+        "id": "979a3d75d0b46271",
+        "type": "http response",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c08a89cb907164a4",
+        "type": "http in",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "url": "/remove-all-user-ruDELETEALL",
+        "method": "delete",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 320,
+        "wires": [
+            [
+                "de837c05b8534c6e"
+            ]
+        ]
+    },
+    {
+        "id": "bca95210b2cd984a",
+        "type": "cloudantplus out",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "cloudant": "73e61778b2e40f48",
+        "database": "user-ru",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "b55b912d12432890"
+            ]
+        ]
+    },
+    {
+        "id": "b55b912d12432890",
+        "type": "http response",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "de837c05b8534c6e",
+        "type": "split",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "splt": "",
+        "spltType": "str",
+        "arraySplt": "1",
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "bca95210b2cd984a"
+            ]
+        ]
+    },
+    {
+        "id": "df3fa03415a5c9d0",
+        "type": "http in",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "url": "/update-user-ruPUT",
+        "method": "put",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "f450a2e794e020a2"
+            ]
+        ]
+    },
+    {
+        "id": "f450a2e794e020a2",
+        "type": "cloudantplus out",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "cloudant": "73e61778b2e40f48",
+        "database": "user-ru",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 440,
+        "y": 120,
+        "wires": [
+            [
+                "2ec2b387ec8ba6e7"
+            ]
+        ]
+    },
+    {
+        "id": "2ec2b387ec8ba6e7",
+        "type": "http response",
+        "z": "1bde81aa0afaee17",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "73e61778b2e40f48",
+        "type": "cloudantplus",
+        "host": "https://apikey-v2-akx71lgvq1iy934x58gwgc80gmpgv1iqo3z42vgns2z:0473d16a449294bf9d58bde95dbacda1@bbd3c0ee-d0c8-455b-bbd3-8d6d996c2c0a-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "Felipe",
+        "useapikey": true
+    }
+]
