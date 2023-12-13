@@ -2,9 +2,11 @@ import SwiftUI
 
 struct TelaDeCardapio: View {
     var pedidos: [Cardapio]
+    let tipoUsuario: TipoUsuarioCardapio
 
-    init(pedidos: [Cardapio]) {
+    init(pedidos: [Cardapio], tipoUsuario: TipoUsuarioCardapio) {
         self.pedidos = pedidos
+        self.tipoUsuario = tipoUsuario
     }
 
     var body: some View {
@@ -75,9 +77,14 @@ struct TelaDeCardapio: View {
     }
 }
 
+enum TipoUsuarioCardapio {
+    case admin
+    case aluno
+}
+
 struct TelaDeCardapio_Previews: PreviewProvider {
     static var previews: some View {
         let pedidos: [Cardapio] = []  // Preencha com os pedidos que você tem
-        return TelaDeCardapio(pedidos: pedidos)
+        return TelaDeCardapio(pedidos: pedidos, tipoUsuario: .admin)
     }
 }
