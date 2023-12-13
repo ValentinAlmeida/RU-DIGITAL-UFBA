@@ -3,7 +3,8 @@ import SwiftUI
 struct TelaInicial: View {
     let tipoUsuario: TipoUsuario
     @State private var selectedTab = 0
-    
+    @State private var pedidos: [Cardapio] = []  // Adicione uma lista de pedidos aqui
+
     var body: some View {
         TabView(selection: $selectedTab) {
             TelaDePagamento()
@@ -12,41 +13,39 @@ struct TelaInicial: View {
                     Text("Cifrao")
                 }
                 .tag(0)
-            
-            TelaDeCardapio()
+
+            TelaDeCardapio(pedidos: pedidos)
                 .tabItem {
                     Image(systemName: "list.bullet.rectangle") // Ícone de cardápio
                     Text("Cardápio")
                 }
                 .tag(1)
-            
+
             if tipoUsuario == .admin {
-                Calendario()
+                CardapioAdmin(pedidos: $pedidos)  // Adicione o binding aqui
                     .tabItem {
                         Image(systemName: "gearshape.fill") // Ícone de cardápio
                         Text("Admin")
                     }
-                    .tag(1)
-            }
-            
-            if tipoUsuario == .admin {
-                TelaDePerfilAdmin()
+                    .tag(2)  // Lembre-se de ajustar o tag para um valor único
+                TelaDePerfil(tipoUsuario: .admin)
                     .tabItem {
                         Image(systemName: "person.circle") // Ícone de perfil do admin
                         Text("Perfil Admin")
                     }
-                    .tag(2)
+                    .tag(3)  // Ajuste o tag de acordo
             } else {
-                TelaDePerfilAluno()
+                TelaDePerfil(tipoUsuario: .aluno)
                     .tabItem {
                         Image(systemName: "person.circle") // Ícone de perfil do aluno
                         Text("Perfil Aluno")
                     }
-                    .tag(2)
+                    .tag(3)  // Ajuste o tag de acordo
             }
         }
     }
 }
+
 
 enum TipoUsuario {
     case admin
