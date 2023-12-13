@@ -7,6 +7,8 @@ struct TelaDeCardapio: View {
     init(pedidos: [Cardapio], tipoUsuario: TipoUsuarioCardapio) {
         self.pedidos = pedidos
         self.tipoUsuario = tipoUsuario
+        self.pedidos.append(Cardapio())
+        self.pedidos.append(Cardapio(turno: 1))
     }
 
     var body: some View {
