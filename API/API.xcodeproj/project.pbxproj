@@ -17,6 +17,7 @@
 		7C968B312B229A5C0041BF4D /* TelaDePerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C968B302B229A5C0041BF4D /* TelaDePerfil.swift */; };
 		7C971B282B2291DB00B5376F /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C971B272B2291DB00B5376F /* Cardapio.swift */; };
 		7CE7F4992B27CBE7002BEE5B /* TelaDeLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7F4982B27CBE7002BEE5B /* TelaDeLogin.swift */; };
+		F4DBFA392B2A758500FD80E2 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBFA382B2A758500FD80E2 /* Design.swift */; };
 		FB722A342B2A4EA500F4DA20 /* CardapioAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB722A332B2A4EA500F4DA20 /* CardapioAdmin.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		7C968B302B229A5C0041BF4D /* TelaDePerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDePerfil.swift; sourceTree = "<group>"; };
 		7C971B272B2291DB00B5376F /* Cardapio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
 		7CE7F4982B27CBE7002BEE5B /* TelaDeLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDeLogin.swift; sourceTree = "<group>"; };
+		F4DBFA382B2A758500FD80E2 /* Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		FB722A332B2A4EA500F4DA20 /* CardapioAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardapioAdmin.swift; path = ../CardapioAdmin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				7C968B2A2B2298A50041BF4D /* TelaInicial.swift */,
 				7C968B2C2B229A3F0041BF4D /* TelaDePagamento.swift */,
 				7C4368202B2287DC00FA3813 /* APIApp.swift */,
+				F4DBFA382B2A758500FD80E2 /* Design.swift */,
 				7C4368242B2287DD00FA3813 /* Assets.xcassets */,
 				7C4368262B2287DD00FA3813 /* Preview Content */,
 			);
@@ -167,6 +170,7 @@
 				FB722A342B2A4EA500F4DA20 /* CardapioAdmin.swift in Sources */,
 				7C968B312B229A5C0041BF4D /* TelaDePerfil.swift in Sources */,
 				7C968B2D2B229A3F0041BF4D /* TelaDePagamento.swift in Sources */,
+				F4DBFA392B2A758500FD80E2 /* Design.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
