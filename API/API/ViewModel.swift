@@ -9,11 +9,12 @@ import Foundation
 
 
 class ViewModel: ObservableObject {
-    @Published var bibleBooks: [Cardapio] = []
+    @Published var listaCardapioIn: [Cardapio] = []
     
+    // @Published var listaCardapioOut: Cardapio
     func fetch(){
         
-        guard let url = URL(string: "https://www.abibliadigital.com.br/api/books") else {
+        guard let url = URL(string: "http://127.0.0.1:1880/recover-all-cardapio-ruGETALL") else {
             return
         }
         
@@ -22,10 +23,10 @@ class ViewModel: ObservableObject {
                 return
             }
             do {
-                let parsed = try JSONDecoder().decode([BibleBooks].self, from: data)
+                let parsed = try JSONDecoder().decode([Cardapio].self, from: data)
                 
                 DispatchQueue.main.async {
-                    self?.bibleBooks = parsed
+                    self?.listaCardapioIn = parsed
                 }
             } catch {
                 print(error)
@@ -34,4 +35,8 @@ class ViewModel: ObservableObject {
         
         task.resume()
     }
+
+    
+    
+      
 }

@@ -9,8 +9,8 @@ import Foundation
 
 // nome do banco de dados node-red = cardapio-ru
 struct Cardapio: Hashable, Codable {
-    var _id: String?
-    var _rev: String?
+    // var _id: String?
+    // var _rev: String?
     var turno: Int? // 0 manhã / 1 tarde
     var bebida: String?
     var acompanhamento: [String]?
@@ -18,7 +18,24 @@ struct Cardapio: Hashable, Codable {
     var proteina: String?
     var vegetariana: String?
     var sobremesa: String?
-    var dia: Int?
-    var mes: Int?
-    var ano: Int?
+    // var data: Date?
+    // data: Date = "2020-10-10"
+    init(   turno: Int = 0,
+            bebida: String = "Suco",
+            acompanhamento: [String] = ["Feijão e Arroz"],
+            salada: [String] = ["Alface e Tomate"],
+            proteina: String = "Carne Assada",
+            vegetariana: String = "Soja",
+            sobremesa: String = "Brigadeiro"
+            // data: Date = "2020-10-10")
+            )
+    {
+        self.turno = turno
+        self.bebida = bebida
+        self.acompanhamento = acompanhamento
+        self.salada = salada
+        self.proteina = proteina
+        self.vegetariana = vegetariana
+        self.sobremesa = sobremesa
+    }
 }
