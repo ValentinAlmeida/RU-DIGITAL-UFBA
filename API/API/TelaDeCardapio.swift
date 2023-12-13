@@ -2,9 +2,11 @@ import SwiftUI
 
 struct TelaDeCardapio: View {
     var pedidos: [Cardapio]
+    let tipoUsuario: TipoUsuarioCardapio
 
-    init(pedidos: [Cardapio]) {
+    init(pedidos: [Cardapio], tipoUsuario: TipoUsuarioCardapio) {
         self.pedidos = pedidos
+        self.tipoUsuario = tipoUsuario
     }
 
     var body: some View {
@@ -24,13 +26,15 @@ struct TelaDeCardapio: View {
                 Text("Sobremesa: \(cardapioManha.sobremesa ?? "")")
 
                 // Adicionar botões de editar e deletar
-                HStack {
-                    Button("Deletar") {
-                        // Ação de deletar
-                        // Implemente a lógica desejada para a exclusão
+                if tipoUsuario == .admin {
+                    HStack {
+                        Button("Deletar") {
+                            // Ação de deletar
+                            // Implemente a lógica desejada para a exclusão
+                        }
+                        .padding()
+                        .foregroundColor(.red)
                     }
-                    .padding()
-                    .foregroundColor(.red)
                 }
             } else {
                 Text("Cardápio da Manhã não disponível para hoje.")
@@ -75,9 +79,14 @@ struct TelaDeCardapio: View {
     }
 }
 
+enum TipoUsuarioCardapio {
+    case admin
+    case aluno
+}
+
 struct TelaDeCardapio_Previews: PreviewProvider {
     static var previews: some View {
         let pedidos: [Cardapio] = []  // Preencha com os pedidos que você tem
-        return TelaDeCardapio(pedidos: pedidos)
+        return TelaDeCardapio(pedidos: pedidos, tipoUsuario: .admin)
     }
 }
