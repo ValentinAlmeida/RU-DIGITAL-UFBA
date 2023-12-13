@@ -1,21 +1,83 @@
-//
-//  TelaDeCardapio.swift
-//  API
-//
-//  Created by Student14_02 on 07/12/23.
-//
-
 import SwiftUI
 
 struct TelaDeCardapio: View {
+    var pedidos: [Cardapio]
+
+    init(pedidos: [Cardapio]) {
+        self.pedidos = pedidos
+    }
+
     var body: some View {
-        // Conteúdo para a aba do Cardápio
-        Text("Conteúdo para Cardápio")
+        VStack {
+            Text("Cardápio do Almoço")
+                .font(.title)
+                .padding()
+
+            if let cardapioManha = pedidos.first(where: { $0.turno == 0 }), isToday(cardapioManha.data) {
+                // Exibir detalhes do cardápio da manhã
+                Text("Turno: Manhã")
+                Text("Bebida: \(cardapioManha.bebida ?? "")")
+                Text("Acompanhamento: \(cardapioManha.acompanhamento?.joined(separator: ", ") ?? "")")
+                Text("Salada: \(cardapioManha.salada?.joined(separator: ", ") ?? "")")
+                Text("Proteína: \(cardapioManha.proteina ?? "")")
+                Text("Vegetariana: \(cardapioManha.vegetariana ?? "")")
+                Text("Sobremesa: \(cardapioManha.sobremesa ?? "")")
+
+                // Adicionar botões de editar e deletar
+                HStack {
+                    Button("Deletar") {
+                        // Ação de deletar
+                        // Implemente a lógica desejada para a exclusão
+                    }
+                    .padding()
+                    .foregroundColor(.red)
+                }
+            } else {
+                Text("Cardápio da Manhã não disponível para hoje.")
+            }
+
+            Text("Cardápio do Jantar")
+                .font(.title)
+                .padding()
+
+            if let cardapioTarde = pedidos.first(where: { $0.turno == 1 }), isToday(cardapioTarde.data) {
+                // Exibir detalhes do cardápio da tarde
+                Text("Turno: Tarde")
+                Text("Bebida: \(cardapioTarde.bebida ?? "")")
+                Text("Acompanhamento: \(cardapioTarde.acompanhamento?.joined(separator: ", ") ?? "")")
+                Text("Salada: \(cardapioTarde.salada?.joined(separator: ", ") ?? "")")
+                Text("Proteína: \(cardapioTarde.proteina ?? "")")
+                Text("Vegetariana: \(cardapioTarde.vegetariana ?? "")")
+                Text("Sobremesa: \(cardapioTarde.sobremesa ?? "")")
+
+                // Adicionar botões de editar e deletar
+                HStack {
+                    Button("Deletar") {
+                        // Ação de deletar
+                        // Implemente a lógica desejada para a exclusão
+                    }
+                    .padding()
+                    .foregroundColor(.red)
+                }
+            } else {
+                Text("Cardápio da Tarde não disponível para hoje.")
+            }
+        }
+        .padding()
+    }
+
+    private func isToday(_ date: Date?) -> Bool {
+        guard let date = date else {
+            return false
+        }
+        let calendar = Calendar.current
+        return calendar.isDateInToday(date)
     }
 }
 
 struct TelaDeCardapio_Previews: PreviewProvider {
     static var previews: some View {
-        TelaDeCardapio()
+        let pedidos: [Cardapio] = []  // Preencha com os pedidos que você tem
+        return TelaDeCardapio(pedidos: pedidos)
     }
 }

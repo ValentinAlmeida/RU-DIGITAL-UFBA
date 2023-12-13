@@ -14,12 +14,10 @@
 		7C968B2B2B2298A50041BF4D /* TelaInicial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C968B2A2B2298A50041BF4D /* TelaInicial.swift */; };
 		7C968B2D2B229A3F0041BF4D /* TelaDePagamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C968B2C2B229A3F0041BF4D /* TelaDePagamento.swift */; };
 		7C968B2F2B229A4E0041BF4D /* TelaDeCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C968B2E2B229A4E0041BF4D /* TelaDeCardapio.swift */; };
-		7C968B312B229A5C0041BF4D /* TelaDePerfilAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C968B302B229A5C0041BF4D /* TelaDePerfilAdmin.swift */; };
+		7C968B312B229A5C0041BF4D /* TelaDePerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C968B302B229A5C0041BF4D /* TelaDePerfil.swift */; };
 		7C971B282B2291DB00B5376F /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C971B272B2291DB00B5376F /* Cardapio.swift */; };
-		7CD11F742B29198400A7C11F /* TelaDePerfilAluno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD11F732B29198400A7C11F /* TelaDePerfilAluno.swift */; };
-		7CD11F7C2B2923B400A7C11F /* Calendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD11F7B2B2923B400A7C11F /* Calendario.swift */; };
-		7CD11F7E2B29288F00A7C11F /* DateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD11F7D2B29288F00A7C11F /* DateDetailView.swift */; };
 		7CE7F4992B27CBE7002BEE5B /* TelaDeLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7F4982B27CBE7002BEE5B /* TelaDeLogin.swift */; };
+		FB722A342B2A4EA500F4DA20 /* CardapioAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB722A332B2A4EA500F4DA20 /* CardapioAdmin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +29,10 @@
 		7C968B2A2B2298A50041BF4D /* TelaInicial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaInicial.swift; sourceTree = "<group>"; };
 		7C968B2C2B229A3F0041BF4D /* TelaDePagamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDePagamento.swift; sourceTree = "<group>"; };
 		7C968B2E2B229A4E0041BF4D /* TelaDeCardapio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDeCardapio.swift; sourceTree = "<group>"; };
-		7C968B302B229A5C0041BF4D /* TelaDePerfilAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDePerfilAdmin.swift; sourceTree = "<group>"; };
+		7C968B302B229A5C0041BF4D /* TelaDePerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDePerfil.swift; sourceTree = "<group>"; };
 		7C971B272B2291DB00B5376F /* Cardapio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
-		7CD11F732B29198400A7C11F /* TelaDePerfilAluno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDePerfilAluno.swift; sourceTree = "<group>"; };
-		7CD11F7B2B2923B400A7C11F /* Calendario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario.swift; sourceTree = "<group>"; };
-		7CD11F7D2B29288F00A7C11F /* DateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailView.swift; sourceTree = "<group>"; };
 		7CE7F4982B27CBE7002BEE5B /* TelaDeLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDeLogin.swift; sourceTree = "<group>"; };
+		FB722A332B2A4EA500F4DA20 /* CardapioAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardapioAdmin.swift; path = ../CardapioAdmin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +65,10 @@
 		7C43681F2B2287DC00FA3813 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				7CD11F7D2B29288F00A7C11F /* DateDetailView.swift */,
-				7CD11F7B2B2923B400A7C11F /* Calendario.swift */,
+				FB722A332B2A4EA500F4DA20 /* CardapioAdmin.swift */,
 				7CE7F4982B27CBE7002BEE5B /* TelaDeLogin.swift */,
 				7C968B2E2B229A4E0041BF4D /* TelaDeCardapio.swift */,
-				7C968B302B229A5C0041BF4D /* TelaDePerfilAdmin.swift */,
-				7CD11F732B29198400A7C11F /* TelaDePerfilAluno.swift */,
+				7C968B302B229A5C0041BF4D /* TelaDePerfil.swift */,
 				7C971B272B2291DB00B5376F /* Cardapio.swift */,
 				7C43682E2B2287EA00FA3813 /* User.swift */,
 				7C968B2A2B2298A50041BF4D /* TelaInicial.swift */,
@@ -164,16 +158,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CD11F742B29198400A7C11F /* TelaDePerfilAluno.swift in Sources */,
 				7CE7F4992B27CBE7002BEE5B /* TelaDeLogin.swift in Sources */,
-				7CD11F7C2B2923B400A7C11F /* Calendario.swift in Sources */,
 				7C971B282B2291DB00B5376F /* Cardapio.swift in Sources */,
 				7C968B2F2B229A4E0041BF4D /* TelaDeCardapio.swift in Sources */,
-				7CD11F7E2B29288F00A7C11F /* DateDetailView.swift in Sources */,
 				7C968B2B2B2298A50041BF4D /* TelaInicial.swift in Sources */,
 				7C4368212B2287DC00FA3813 /* APIApp.swift in Sources */,
 				7C43682F2B2287EA00FA3813 /* User.swift in Sources */,
-				7C968B312B229A5C0041BF4D /* TelaDePerfilAdmin.swift in Sources */,
+				FB722A342B2A4EA500F4DA20 /* CardapioAdmin.swift in Sources */,
+				7C968B312B229A5C0041BF4D /* TelaDePerfil.swift in Sources */,
 				7C968B2D2B229A3F0041BF4D /* TelaDePagamento.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

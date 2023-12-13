@@ -18,7 +18,5 @@ struct Cardapio: Hashable, Codable {
     var proteina: String?
     var vegetariana: String?
     var sobremesa: String?
-    var dia: Int?
-    var mes: Int?
-    var ano: Int?
+    var data: Date?
 }
