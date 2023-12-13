@@ -3,49 +3,61 @@ import SwiftUI
 struct Calendario: View {
     private let calendar = Calendar.current
     @State private var currentDate = Date()
+    @State private var selectedDate: DateIdentifiable?
 
     var body: some View {
-        VStack {
-            HStack {
-                Button(action: {
-                    self.currentDate = self.getPreviousMonth()
-                }) {
-                    Image(systemName: "arrow.left.circle")
-                        .font(.title)
-                        .padding()
-                }
-
-                Text(getMonthYearHeader())
-                    .font(.title)
-                    .padding()
-
-                Button(action: {
-                    self.currentDate = self.getNextMonth()
-                }) {
-                    Image(systemName: "arrow.right.circle")
-                        .font(.title)
-                        .padding()
-                }
-            }
-
-            // Exibir o calendário para o mês atual
+        NavigationView {
             VStack {
-                ForEach(getWeeksInMonth(), id: \.self) { week in
-                    HStack {
-                        ForEach(week, id: \.self) { day in
-                            Button(action: {
-                                // Implemente a ação que deseja para cada dia aqui
-                                print("Clicou no dia \(day)")
-                            }) {
-                                Text(day)
-                                    .frame(width: 30, height: 30)
-                                    .padding(5)
+                HStack {
+                    Button(action: {
+                        self.currentDate = self.getPreviousMonth()
+                    }) {
+                        Image(systemName: "arrow.left.circle")
+                            .font(.title)
+                            .padding()
+                    }
+
+                    Text(getMonthYearHeader())
+                        .font(.title)
+                        .padding()
+
+                    Button(action: {
+                        self.currentDate = self.getNextMonth()
+                    }) {
+                        Image(systemName: "arrow.right.circle")
+                            .font(.title)
+                            .padding()
+                    }
+                }
+
+                // Exibir o calendário para o mês atual
+                VStack {
+                    ForEach(getWeeksInMonth(), id: \.self) { week in
+                        HStack {
+                            ForEach(week, id: \.self) { day in
+                                Button(action: {
+                                    self.selectedDate = DateIdentifiable(date: self.getDateFromDayString(day)!)
+                                }) {
+                                    Text(day)
+                                        .frame(width: 30, height: 30)
+                                        .padding(5)
+                                }
                             }
                         }
                     }
                 }
             }
+            .sheet(item: $selectedDate) { date in
+                DateDetailView(selectedDate: date.date)
+            }
         }
+    }
+
+    // Obter cabeçalho do mês e ano
+    func getMonthYearHeader() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM yyyy"
+        return dateFormatter.string(from: currentDate)
     }
 
     // Obter as semanas no mês para o mês atual
@@ -76,13 +88,6 @@ struct Calendario: View {
         return weeks
     }
 
-    // Obter cabeçalho do mês e ano
-    func getMonthYearHeader() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM yyyy"
-        return dateFormatter.string(from: currentDate)
-    }
-
     // Obter o próximo mês
     func getNextMonth() -> Date {
         return calendar.date(byAdding: .month, value: 1, to: currentDate) ?? Date()
@@ -91,6 +96,21 @@ struct Calendario: View {
     // Obter o mês anterior
     func getPreviousMonth() -> Date {
         return calendar.date(byAdding: .month, value: -1, to: currentDate) ?? Date()
+    }
+
+    // Função para obter a data selecionada a partir do dia em string
+    func getDateFromDayString(_ dayString: String) -> Date? {
+        guard let day = Int(dayString) else { return nil }
+
+        var components = calendar.dateComponents([.year, .month], from: currentDate)
+        components.day = day
+        return calendar.date(from: components)
+    }
+
+    // Estrutura que adota Identifiable para envolver a data
+    struct DateIdentifiable: Identifiable {
+        var id: Date { date }
+        let date: Date
     }
 }
 
