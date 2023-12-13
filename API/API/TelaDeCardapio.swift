@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TelaDeCardapio: View {
-    var pedidos: [Cardapio]
+    @State private var pedidos: [Cardapio] = []
     let tipoUsuario: TipoUsuarioCardapio
 
     init(pedidos: [Cardapio], tipoUsuario: TipoUsuarioCardapio) {
@@ -66,6 +66,8 @@ struct TelaDeCardapio: View {
             } else {
                 Text("Cardápio da Tarde não disponível para hoje.")
             }
+        }.onAppear(){
+            pedidos  = CardapioManager.shared.loadCardapios()
         }
         .padding()
     }
@@ -86,7 +88,12 @@ enum TipoUsuarioCardapio {
 
 struct TelaDeCardapio_Previews: PreviewProvider {
     static var previews: some View {
-        let pedidos: [Cardapio] = []  // Preencha com os pedidos que você tem
+        // Criando alguns pedidos fictícios para a pré-visualização
+        let pedidos: [Cardapio] = [
+            Cardapio(turno: 0, bebida: "Água", acompanhamento: ["Arroz", "Feijão"], salada: ["Alface", "Tomate"], proteina: "Frango", vegetariana: "", sobremesa: "Pudim", data: Date()),
+            Cardapio(turno: 1, bebida: "Suco", acompanhamento: ["Macarrão"], salada: ["Rúcula"], proteina: "Peixe", vegetariana: "Legumes", sobremesa: "Fruta", data: Date())
+        ]
+        
         return TelaDeCardapio(pedidos: pedidos, tipoUsuario: .admin)
     }
 }
