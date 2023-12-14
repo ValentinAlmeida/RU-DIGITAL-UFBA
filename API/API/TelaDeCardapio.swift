@@ -17,7 +17,6 @@ struct TelaDeCardapio: View {
 
             if let cardapioManha = pedidos.first(where: { $0.turno == 0 }), isToday(cardapioManha.data) {
                 // Exibir detalhes do cardápio da manhã
-                Text("Turno: Manhã")
                 Text("Bebida: \(cardapioManha.bebida ?? "")")
                 Text("Acompanhamento: \(cardapioManha.acompanhamento?.joined(separator: ", ") ?? "")")
                 Text("Salada: \(cardapioManha.salada?.joined(separator: ", ") ?? "")")
@@ -29,8 +28,7 @@ struct TelaDeCardapio: View {
                 if tipoUsuario == .admin {
                     HStack {
                         Button("Deletar") {
-                            // Ação de deletar
-                            // Implemente a lógica desejada para a exclusão
+                            deleteItem(cardapioManha)
                         }
                         .padding()
                         .foregroundColor(.red)
@@ -46,7 +44,6 @@ struct TelaDeCardapio: View {
 
             if let cardapioTarde = pedidos.first(where: { $0.turno == 1 }), isToday(cardapioTarde.data) {
                 // Exibir detalhes do cardápio da tarde
-                Text("Turno: Tarde")
                 Text("Bebida: \(cardapioTarde.bebida ?? "")")
                 Text("Acompanhamento: \(cardapioTarde.acompanhamento?.joined(separator: ", ") ?? "")")
                 Text("Salada: \(cardapioTarde.salada?.joined(separator: ", ") ?? "")")
@@ -57,8 +54,7 @@ struct TelaDeCardapio: View {
                 // Adicionar botões de editar e deletar
                 HStack {
                     Button("Deletar") {
-                        // Ação de deletar
-                        // Implemente a lógica desejada para a exclusão
+                        deleteItem(cardapioTarde)
                     }
                     .padding()
                     .foregroundColor(.red)
@@ -78,6 +74,12 @@ struct TelaDeCardapio: View {
         }
         let calendar = Calendar.current
         return calendar.isDateInToday(date)
+    }
+    private func deleteItem(_ cardapio: Cardapio) {
+        if let index = pedidos.firstIndex(where: { $0 == cardapio }) {
+            pedidos.remove(at: index)
+            CardapioManager.shared.saveCardapios(pedidos)
+        }
     }
 }
 
