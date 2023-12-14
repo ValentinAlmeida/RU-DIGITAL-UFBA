@@ -13,7 +13,7 @@ struct Design: View {
         
         ZStack(){
         
-        Color("Laranja")
+        Color("LaranjaForte")
         
             VStack(){
                 
