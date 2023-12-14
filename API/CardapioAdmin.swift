@@ -2,6 +2,8 @@ import SwiftUI
 
 struct CardapioAdmin: View {
     // Estados para armazenar os detalhes do cardápio
+    
+    
     @State private var turno: Int = 0
     @State private var bebida: String = ""
     @State private var acompanhamento: [String] = []
@@ -20,76 +22,99 @@ struct CardapioAdmin: View {
 
     // Estado para controlar a exibição do alerta
     @State private var showAlert: Bool = false
-
+    
+    /// <#Description#>
     var body: some View {
-        VStack {
-            Form {
-                Section(header: Text("Detalhes do Cardápio")) {
-                    // Campo de seleção para o turno
-                    Picker("Turno", selection: $turno) {
-                        Text("Manhã").tag(0)
-                        Text("Tarde").tag(1)
+        
+        ZStack(){
+
+            Color("LaranjaFraco")
+                .ignoresSafeArea()
+        
+            VStack {
+                
+                Form {
+                  
+
+                    Section(header: Text("Detalhes do Cardápio")
+                        .font(.title2).bold())
+                    {
+                        // Campo de seleção para o turno
+                        
+                        Picker("Turno", selection: $turno) {
+                            Text("Almoço").tag(0)
+                            Text("Jantar").tag(1)
+                        }
+                        
+                        // Campos de texto para os detalhes do cardápio
+                        TextField("Bebida", text: $bebida)
+                        TextField("Proteína", text: $proteina)
+                        TextField("Vegetariana", text: $vegetariana)
+                        
+                        // Seletor de data
+                        DatePicker("Data", selection: $selectedDate, displayedComponents: .date)
+                        
+                        // Campos de texto com atualização dinâmica
+                        TextField("Acompanhamento", text: $acompanhamentoText)
+                            .onChange(of: acompanhamentoText) { newValue in
+                                acompanhamento = newValue.components(separatedBy: ",")
+                            }
+                        
+                        TextField("Salada", text: $saladaText)
+                            .onChange(of: saladaText) { newValue in
+                                salada = newValue.components(separatedBy: ",")
+                            }
+                        
+                        TextField("Sobremesa", text: $sobremesa)
+                        
                     }
-
-                    // Campos de texto para os detalhes do cardápio
-                    TextField("Bebida", text: $bebida)
-                    TextField("Proteína", text: $proteina)
-                    TextField("Vegetariana", text: $vegetariana)
-
-                    // Seletor de data
-                    DatePicker("Data", selection: $selectedDate, displayedComponents: .date)
-
-                    // Campos de texto com atualização dinâmica
-                    TextField("Acompanhamento", text: $acompanhamentoText)
-                        .onChange(of: acompanhamentoText) { newValue in
-                            acompanhamento = newValue.components(separatedBy: ",")
-                        }
-
-                    TextField("Salada", text: $saladaText)
-                        .onChange(of: saladaText) { newValue in
-                            salada = newValue.components(separatedBy: ",")
-                        }
-
-                    TextField("Sobremesa", text: $sobremesa)
+                    
                 }
-            }
-
-            // Botão para cadastrar o cardápio
-            Button("Cadastrar") {
-                let cardapio = Cardapio(turno: turno,
-                                        bebida: bebida,
-                                        acompanhamento: acompanhamento,
-                                        salada: salada,
-                                        proteina: proteina,
-                                        vegetariana: vegetariana,
-                                        sobremesa: sobremesa,
-                                        data: selectedDate)
-
-                // Adiciona o novo pedido à lista de pedidos
-                pedidos.append(cardapio)
-
-                // Limpa os campos após a submissão
-                bebida = ""
-                acompanhamento = []
-                salada = []
-                proteina = ""
-                vegetariana = ""
-                sobremesa = ""
-                selectedDate = Date()
-
-                // Define o estado para exibir o alerta
-                showAlert = true
-            }
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Cadastro concluído"),
-                      message: Text("O cardápio foi cadastrado com sucesso."),
-                      dismissButton: .default(Text("OK")))
-            }
+                .scrollContentBackground(.hidden)
+                
+                // Botão para cadastrar o cardápio
+                Button("Cadastrar"){
+                    let cardapio = Cardapio(turno: turno,
+                                            bebida: bebida,
+                                            acompanhamento: acompanhamento,
+                                            salada: salada,
+                                            proteina: proteina,
+                                            vegetariana: vegetariana,
+                                            sobremesa: sobremesa,
+                                            data: selectedDate)
+                    
+                    // Adiciona o novo pedido à lista de pedidos
+                    pedidos.append(cardapio)
+                    
+                    // Limpa os campos após a submissão
+                    bebida = ""
+                    acompanhamento = []
+                    salada = []
+                    proteina = ""
+                    vegetariana = ""
+                    sobremesa = ""
+                    selectedDate = Date()
+                    
+                    // Define o estado para exibir o alerta
+                    showAlert = true
+                }
+                .foregroundColor(Color("Verde"))
+                .bold()
+                .shadow(radius: 10)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Cadastro concluído"),
+                          message: Text("O cardápio foi cadastrado com sucesso."),
+                          dismissButton: .default(Text("OK")))
+                }
+            } .shadow(radius: 10)
+            
 
             // Espaçador para melhor layout
-            Spacer()
+//            Spacer()
         }
-        .padding()
+        
+//        .padding()
+        
     }
 }
 
