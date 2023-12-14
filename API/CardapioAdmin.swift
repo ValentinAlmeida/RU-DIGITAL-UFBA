@@ -37,7 +37,7 @@ struct CardapioAdmin: View {
                   
 
                     Section(header: Text("Detalhes do Cardápio")
-                        .font(.title2).bold())
+                        .font(.title2).bold().foregroundColor(.white))
                     {
                         // Campo de seleção para o turno
                         
@@ -98,14 +98,17 @@ struct CardapioAdmin: View {
                     // Define o estado para exibir o alerta
                     showAlert = true
                 }
-                .foregroundColor(Color("Verde"))
+                .foregroundColor(Color.white)
                 .bold()
                 .shadow(radius: 10)
+                .frame(width: 130, height: 35)
+                .background(Color("Amarelo"))
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("Cadastro concluído"),
                           message: Text("O cardápio foi cadastrado com sucesso."),
                           dismissButton: .default(Text("OK")))
                 }
+                .padding()
             } .shadow(radius: 10)
             
 

@@ -48,6 +48,11 @@ struct TelaInicial: View {
                     .tag(3)  // Ajuste o tag de acordo
             }
         }
+        .onAppear(){
+            
+            UITabBar.appearance().backgroundColor = .systemGray4
+        }
+        
     }
 }
 
