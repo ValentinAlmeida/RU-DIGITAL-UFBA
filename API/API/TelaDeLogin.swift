@@ -8,6 +8,11 @@ struct TelaDeLogin: View {
                 Color("LaranjaFraco")
                     .ignoresSafeArea()
                 VStack {
+                    Image("rufa")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 1000, height: 250)
+        
                     NavigationLink(destination: TelaInicial(tipoUsuario: .admin)) {
                         Text("Tela do Admin")
                             .padding()
