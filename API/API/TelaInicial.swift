@@ -21,7 +21,7 @@ struct TelaInicial: View {
                         Text("Cardápio")
                     }
                     .tag(1)
-                CardapioAdmin(pedidos: $pedidos)  // Adicione o binding aqui
+                CardapioAdmin()  // Adicione o binding aqui
                     .tabItem {
                         Image(systemName: "gearshape.fill") // Ícone de cardápio
                         Text("Admin")
