@@ -10,62 +10,85 @@ struct TelaDeCardapio: View {
     }
 
     var body: some View {
-        VStack {
-            Text("Cardápio do Almoço")
-                .font(.title)
-                .padding()
-
-            if let cardapioManha = pedidos.first(where: { $0.turno == 0 }), isToday(cardapioManha.data) {
-                // Exibir detalhes do cardápio da manhã
-                Text("Bebida: \(cardapioManha.bebida ?? "")")
-                Text("Acompanhamento: \(cardapioManha.acompanhamento?.joined(separator: ", ") ?? "")")
-                Text("Salada: \(cardapioManha.salada?.joined(separator: ", ") ?? "")")
-                Text("Proteína: \(cardapioManha.proteina ?? "")")
-                Text("Vegetariana: \(cardapioManha.vegetariana ?? "")")
-                Text("Sobremesa: \(cardapioManha.sobremesa ?? "")")
-
-                // Adicionar botões de editar e deletar
-                if tipoUsuario == .admin {
-                    HStack {
-                        Button("Deletar") {
-                            deleteItem(cardapioManha)
+        ZStack{
+            Color("Amarelo")
+                .ignoresSafeArea()
+            ScrollView{
+                VStack {
+                    VStack{
+                        Text("Cardápio do Almoço")
+                            .font(.title)
+                            .padding()
+                            .foregroundColor(.white)
+                        
+                        if let cardapioManha = pedidos.first(where: { $0.turno == 0 }), isToday(cardapioManha.data) {
+                            // Exibir detalhes do cardápio da manhã
+                            Text("Bebida: \(cardapioManha.bebida ?? "")")
+                            Text("Acompanhamento: \(cardapioManha.acompanhamento?.joined(separator: ", ") ?? "")")
+                            Text("Salada: \(cardapioManha.salada?.joined(separator: ", ") ?? "")")
+                            Text("Proteína: \(cardapioManha.proteina ?? "")")
+                            Text("Vegetariana: \(cardapioManha.vegetariana ?? "")")
+                            Text("Sobremesa: \(cardapioManha.sobremesa ?? "")")
+                            
+                            // Adicionar botões de editar e deletar
+                            if tipoUsuario == .admin {
+                                HStack {
+                                    Button("Deletar") {
+                                        deleteItem(cardapioManha)
+                                    }
+                                    .padding()
+                                    .foregroundColor(.white)
+                                }
+                            }
+                        } else {
+                            Text("Cardápio da Manhã não disponível para hoje.")
                         }
-                        .padding()
-                        .foregroundColor(.red)
+                        Spacer()
                     }
-                }
-            } else {
-                Text("Cardápio da Manhã não disponível para hoje.")
-            }
-
-            Text("Cardápio do Jantar")
-                .font(.title)
-                .padding()
-
-            if let cardapioTarde = pedidos.first(where: { $0.turno == 1 }), isToday(cardapioTarde.data) {
-                // Exibir detalhes do cardápio da tarde
-                Text("Bebida: \(cardapioTarde.bebida ?? "")")
-                Text("Acompanhamento: \(cardapioTarde.acompanhamento?.joined(separator: ", ") ?? "")")
-                Text("Salada: \(cardapioTarde.salada?.joined(separator: ", ") ?? "")")
-                Text("Proteína: \(cardapioTarde.proteina ?? "")")
-                Text("Vegetariana: \(cardapioTarde.vegetariana ?? "")")
-                Text("Sobremesa: \(cardapioTarde.sobremesa ?? "")")
-
-                // Adicionar botões de editar e deletar
-                HStack {
-                    Button("Deletar") {
-                        deleteItem(cardapioTarde)
-                    }
+                    .background(Color("LaranjaFraco"))
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
                     .padding()
-                    .foregroundColor(.red)
+                    
+                    VStack{
+                        Text("Cardápio do Jantar")
+                            .font(.title)
+                            .padding()
+                        
+                        if let cardapioTarde = pedidos.first(where: { $0.turno == 1 }), isToday(cardapioTarde.data) {
+                            // Exibir detalhes do cardápio da tarde
+                            Text("Bebida: \(cardapioTarde.bebida ?? "")")
+                            Text("Acompanhamento: \(cardapioTarde.acompanhamento?.joined(separator: ", ") ?? "")")
+                            Text("Salada: \(cardapioTarde.salada?.joined(separator: ", ") ?? "")")
+                            Text("Proteína: \(cardapioTarde.proteina ?? "")")
+                            Text("Vegetariana: \(cardapioTarde.vegetariana ?? "")")
+                            Text("Sobremesa: \(cardapioTarde.sobremesa ?? "")")
+                            
+                            // Adicionar botões de editar e deletar
+                            HStack {
+                                Button("Deletar") {
+                                    deleteItem(cardapioTarde)
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                            }
+                        } else {
+                            Text("Cardápio da Tarde não disponível para hoje.")
+                        }
+                        Spacer()
+                    }
+                    .background(Color("LaranjaForte"))
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+                    //arredondamento
+                    //shadow
+                    .padding()
+                }.onAppear(){
+                    pedidos  = CardapioManager.shared.loadCardapios()
                 }
-            } else {
-                Text("Cardápio da Tarde não disponível para hoje.")
+                .padding()
             }
-        }.onAppear(){
-            pedidos  = CardapioManager.shared.loadCardapios()
         }
-        .padding()
     }
 
     private func isToday(_ date: Date?) -> Bool {

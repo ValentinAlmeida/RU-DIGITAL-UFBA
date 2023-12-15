@@ -15,62 +15,73 @@ struct CardapioAdmin: View {
     @State private var showAlert: Bool = false
 
     var body: some View {
-        VStack {
-            Form {
-                Section(header: Text("Detalhes do Cardápio")) {
-                    Picker("Turno", selection: $turno) {
-                        Text("Manhã").tag(0)
-                        Text("Tarde").tag(1)
+        ZStack{
+            Color("LaranjaFraco")
+                .ignoresSafeArea()
+            VStack {
+                Form {
+                    Section(header: Text("Detalhes do Cardápio")
+                        .font(.title2).bold().foregroundColor(.white))
+                    {
+                        Picker("Turno", selection: $turno) {
+                            Text("Manhã").tag(0)
+                            Text("Tarde").tag(1)
+                        }
+
+                        TextField("Bebida", text: $bebida)
+                        TextField("Proteína", text: $proteina)
+                        TextField("Vegetariana", text: $vegetariana)
+                        DatePicker("Data", selection: $selectedDate, displayedComponents: .date)
+                        TextField("Acompanhamento", text: $acompanhamentoText)
+                            .onChange(of: acompanhamentoText) { newValue in
+                                acompanhamento = newValue.components(separatedBy: ",")
+                            }
+                        TextField("Salada", text: $saladaText)
+                            .onChange(of: saladaText) { newValue in
+                                salada = newValue.components(separatedBy: ",")
+                            }
+                        TextField("Sobremesa", text: $sobremesa)
                     }
-
-                    TextField("Bebida", text: $bebida)
-                    TextField("Proteína", text: $proteina)
-                    TextField("Vegetariana", text: $vegetariana)
-                    DatePicker("Data", selection: $selectedDate, displayedComponents: .date)
-                    TextField("Acompanhamento", text: $acompanhamentoText)
-                        .onChange(of: acompanhamentoText) { newValue in
-                            acompanhamento = newValue.components(separatedBy: ",")
-                        }
-                    TextField("Salada", text: $saladaText)
-                        .onChange(of: saladaText) { newValue in
-                            salada = newValue.components(separatedBy: ",")
-                        }
-                    TextField("Sobremesa", text: $sobremesa)
                 }
+                .scrollContentBackground(.hidden)
+
+                Button("Cadastrar") {
+                    let cardapio = Cardapio(turno: turno,
+                                            bebida: bebida,
+                                            acompanhamento: acompanhamento,
+                                            salada: salada,
+                                            proteina: proteina,
+                                            vegetariana: vegetariana,
+                                            sobremesa: sobremesa,
+                                            data: selectedDate)
+                    pedidos.append(cardapio)
+                    CardapioManager.shared.saveCardapios(pedidos)
+
+                    bebida = ""
+                    acompanhamento = []
+                    salada = []
+                    proteina = ""
+                    vegetariana = ""
+                    sobremesa = ""
+                    selectedDate = Date()
+
+                    showAlert = true
+                }
+                .foregroundColor(Color.white)
+                .bold()
+                .shadow(radius: 10)
+                .frame(width: 130, height: 35)
+                .background(Color("Amarelo"))
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Cadastro concluído"),
+                          message: Text("O cardápio foi cadastrado com sucesso."),
+                          dismissButton: .default(Text("OK")))
+                }
+
+                Spacer()
             }
-
-            Button("Cadastrar") {
-                let cardapio = Cardapio(turno: turno,
-                                        bebida: bebida,
-                                        acompanhamento: acompanhamento,
-                                        salada: salada,
-                                        proteina: proteina,
-                                        vegetariana: vegetariana,
-                                        sobremesa: sobremesa,
-                                        data: selectedDate)
-                pedidos = []
-                pedidos.append(cardapio)
-                CardapioManager.shared.saveCardapios(pedidos)
-
-                bebida = ""
-                acompanhamento = []
-                salada = []
-                proteina = ""
-                vegetariana = ""
-                sobremesa = ""
-                selectedDate = Date()
-
-                showAlert = true
-            }
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Cadastro concluído"),
-                      message: Text("O cardápio foi cadastrado com sucesso."),
-                      dismissButton: .default(Text("OK")))
-            }
-
-            Spacer()
+            .padding()
         }
-        .padding()
     }
 }
 

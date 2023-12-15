@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TelaDePerfil: View {
+    @State var screenSize: CGSize = .zero
+
     let tipoUsuario: TipoUsuarioPerfil
     let admin: User = User(nome: "Admin", email: "admin@example.com", matricula: 12345, password: "senha", cargo: "Admin")
     let aluno: User = User(nome: "Aluno", email: "aluno@example.com", matricula: 54321, password: "senha123", cargo: "Aluno")
@@ -22,23 +24,48 @@ struct TelaDePerfil: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            Text("Detalhes do Perfil")
-                .font(.title)
-                .bold()
-                .padding()
+        ZStack{
+            Color("Amarelo")
+                .ignoresSafeArea()
             
-            Text("Nome: \(usuarioAtual.nome ?? "N/A")")
-                .padding()
-            
-            Text("Email: \(usuarioAtual.email ?? "N/A")")
-                .padding()
-            
-            Text("Matrícula: \(usuarioAtual.matricula ?? 0)")
-                .padding()
-            
-            // Adicione outras informações do perfil aqui, conforme necessário
-            
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Detalhes do Perfil")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                    .foregroundColor(.white)
+                VStack{
+                    Text("Nome: \(usuarioAtual.nome ?? "N/A")")
+                        .frame(maxWidth: .infinity,alignment: .leading)
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(10)
+                    
+                    Text("Email: \(usuarioAtual.email ?? "N/A")")
+                        .frame(maxWidth: .infinity,alignment: .leading)
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(10)
+                    
+                    Text("Matrícula: \(usuarioAtual.matricula ?? 0)")
+                        .frame(maxWidth: .infinity,alignment: .leading)
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(10)
+                    
+                    
+                }
+                
+                
+                // Adicione outras informações do perfil aqui, conforme necessário
+                
+                //
+            }
+            .padding(40)
+            .background(Color("LaranjaFraco"))
+            .cornerRadius(20)
+            .shadow(radius: 10)
+            .padding()
             Spacer()
         }
     }

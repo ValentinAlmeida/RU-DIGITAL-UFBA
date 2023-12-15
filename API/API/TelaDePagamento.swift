@@ -12,11 +12,21 @@ struct TelaDePagamento: View {
     @State private var text = "Pague essa comanda agora rapaz!"
     
     var body: some View {
-        VStack{
-            Text("Pague sua comanda para acessar o RU")
-            Image(uiImage: UIImage(data: getQRCodeDate(text: text)!)!)
-                .resizable()
-                .frame(width: 200, height: 200)
+        ZStack{
+            Color("Amarelo")
+                .ignoresSafeArea()
+            VStack{
+                
+                Text("Comprar ticket")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                    .foregroundColor(.white)
+                
+                Image(uiImage: UIImage(data: getQRCodeDate(text: text)!)!)
+                    .resizable()
+                    .frame(width: 200, height: 200)
+            }
         }
     }
     

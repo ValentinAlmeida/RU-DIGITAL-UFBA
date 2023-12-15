@@ -14,13 +14,14 @@ struct TelaInicial: View {
                 }
                 .tag(0)
 
+            TelaDeCardapio(pedidos: pedidos, tipoUsuario: .admin)
+                .tabItem {
+                    Image(systemName: "list.bullet.rectangle") // Ícone de cardápio
+                    Text("Cardápio")
+                }
+                .tag(1)
+
             if tipoUsuario == .admin {
-                TelaDeCardapio(pedidos: pedidos, tipoUsuario: .admin)
-                    .tabItem {
-                        Image(systemName: "list.bullet.rectangle") // Ícone de cardápio
-                        Text("Cardápio")
-                    }
-                    .tag(1)
                 CardapioAdmin()  // Adicione o binding aqui
                     .tabItem {
                         Image(systemName: "gearshape.fill") // Ícone de cardápio
@@ -34,12 +35,6 @@ struct TelaInicial: View {
                     }
                     .tag(3)  // Ajuste o tag de acordo
             } else {
-                TelaDeCardapio(pedidos: pedidos, tipoUsuario: .aluno)
-                    .tabItem {
-                        Image(systemName: "list.bullet.rectangle") // Ícone de cardápio
-                        Text("Cardápio")
-                    }
-                    .tag(1)
                 TelaDePerfil(tipoUsuario: .aluno)
                     .tabItem {
                         Image(systemName: "person.circle") // Ícone de perfil do aluno
@@ -48,13 +43,19 @@ struct TelaInicial: View {
                     .tag(3)  // Ajuste o tag de acordo
             }
         }
+        .accentColor(Color("Verde"))
+        .onAppear(){
+            UITabBar.appearance().backgroundColor = .systemGray6
+        }
     }
 }
+
 
 enum TipoUsuario {
     case admin
     case aluno
 }
+
 
 struct TelaInicial_Previews: PreviewProvider {
     static var previews: some View {
