@@ -48,7 +48,7 @@ struct CardapioAdmin: View {
                                         vegetariana: vegetariana,
                                         sobremesa: sobremesa,
                                         data: selectedDate)
-
+                pedidos = []
                 pedidos.append(cardapio)
                 CardapioManager.shared.saveCardapios(pedidos)
 
